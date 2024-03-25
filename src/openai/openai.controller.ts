@@ -16,4 +16,10 @@ export class OpenaiController {
     )) as OpenAI.ChatCompletion;
     return this.openaiService.getChatOpenaiResponse(getMessages);
   }
+
+  @Post('/image')
+  @HttpCode(200)
+  async getImage(@Body('prompt') prompt: string) {
+    return this.openaiService.generateImage(prompt);
+  }
 }
